@@ -10,12 +10,13 @@
     http://localhost:8081/swagger-ui/index.html#/  ConsumerService
 
 2) Другой способ - запустить docker-compose.yml
-- Важно! В jar файлах:
-- в модуле ConsumerService в файлах CategoryServiceImpl и ProductServiceImpl изменен путь к модулю SupplierService
+-Сформировать jar файлы для SupplierService и ConsumerService
+- Важно! В перед формированием jar файлов:
+- в модуле ConsumerService в файлах CategoryServiceImpl и ProductServiceImpl надо изменит путь к модулю SupplierService
 
-- static String categoryUrl = "http://localhost:8080/api/v1/categories" заменен на static String categoryUrl = "http://supplier:8080/api/v1/categories";
+- static String categoryUrl = "http://localhost:8080/api/v1/categories" заменить на static String categoryUrl = "http://supplier:8080/api/v1/categories";
 
-- static String productUrl = "http://localhost:8080/api/v1/products" заменен на static String productUrl = "http://supplier:8080/api/v1/products"
+- static String productUrl = "http://localhost:8080/api/v1/products" заменить на static String productUrl = "http://supplier:8080/api/v1/products"
 
     Протестировать можно, так же, запустив документацию swagger-openapi.
 
