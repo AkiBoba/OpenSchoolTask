@@ -11,13 +11,13 @@ insert into products (name, description, price, category_id)
 insert into products (name, description, price, category_id)
                 values ('помидоры','черри',20.60,2);
 insert into products (name, description, price, category_id)
-                values ('огурцы','тепличные',20.50,2);
+                values ('огурцы','тепличные',230.00,2);
 insert into products (name, description, price, category_id)
-                values ('сок','виноградны',50.10,3);
+                values ('сок','виноградный',50.10,3);
 insert into products (name, description, price, category_id)
                 values ('вода','минеральная',12.50,3);
 insert into products (name, description, price, category_id)
-                values ('молоко','жирное',45.20,4);
+                values ('молоко','жирное',95.20,4);
 insert into products (name, description, price, category_id)
                 values ('творог','обезжиренный',100.30,4);
 insert into products (name, description, price, category_id)

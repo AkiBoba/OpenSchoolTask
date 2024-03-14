@@ -16,6 +16,7 @@ import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.math.BigDecimal;
 import java.net.URI;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -34,13 +35,13 @@ public class ProductServiceImpl implements ProductService {
     static String productUrl = "http://localhost:8080/api/v1/products";
     static String pageableUrlSuffix = "/pageable";
     static String idUrlSuffix = "/{id}";
+    static String filterUrlSuffix = "/filtered";
 
     @Override
     public Product create(ProductDTO product) {
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<ProductDTO> requestEntity = new HttpEntity<>(product, headers);
-        ResponseEntity<Product> response = restTemplate.exchange(productUrl, HttpMethod.POST, requestEntity, Product.class);
-        return response.getBody();
+        return restTemplate.exchange(productUrl, HttpMethod.POST, requestEntity, Product.class).getBody();
     }
 
     @Override
@@ -65,14 +66,33 @@ public class ProductServiceImpl implements ProductService {
                 .build()
                 .encode()
                 .toUri();
-        ResponseEntity<PageDTO> response = restTemplate.exchange(uri, HttpMethod.GET, entity, PageDTO.class);
-        return response.getBody();
+        return restTemplate.exchange(uri, HttpMethod.GET, entity, PageDTO.class).getBody();
+    }
+
+    @Override
+    public List<Product> findAll(Long categoryId, BigDecimal minPrice, BigDecimal maxPrice) {
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<String> entity = new HttpEntity<>(null, headers);
+        URI uri = UriComponentsBuilder.fromUriString(productUrl + filterUrlSuffix)
+                .queryParam("categoryId", categoryId)
+                .queryParam("minPrice", minPrice)
+                .queryParam("maxPrice", maxPrice)
+                .build()
+                .encode()
+                .toUri();
+        ResponseEntity<List<LinkedHashMap>> response = restTemplate.exchange(uri, HttpMethod.GET, entity, new ParameterizedTypeReference<>() {
+        });
+        return response.getBody().stream()
+                .map(productData -> mapper.convertValue(productData, Product.class))
+                .collect(Collectors.toList());
     }
 
     @Override
     public Product findById(Long id) throws HttpClientErrorException {
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<ProductDTO> requestEntity = new HttpEntity<>(null, headers);
         Map<String, Long> vars = Collections.singletonMap("id", id);
-        return restTemplate.getForObject(productUrl + idUrlSuffix, Product.class, vars);
+        return restTemplate.exchange(productUrl + idUrlSuffix, HttpMethod.GET, requestEntity, Product.class, vars).getBody();
     }
 
     @Override
@@ -83,10 +103,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product put(Long id, ProductDTO product) {
-        Map<String, Long> vars = Collections.singletonMap("id", id);
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<ProductDTO> requestEntity = new HttpEntity<>(product, headers);
-        ResponseEntity<Product> response = restTemplate.exchange(productUrl + idUrlSuffix, HttpMethod.PUT, requestEntity, Product.class, vars);
-        return response.getBody();
+        Map<String, Long> vars = Collections.singletonMap("id", id);
+        return restTemplate.exchange(productUrl + idUrlSuffix, HttpMethod.PUT, requestEntity, Product.class, vars).getBody();
     }
 }

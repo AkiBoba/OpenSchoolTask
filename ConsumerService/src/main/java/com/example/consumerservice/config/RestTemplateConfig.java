@@ -1,6 +1,5 @@
 package com.example.consumerservice.config;
 
-import com.example.consumerservice.props.UrlProps;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;

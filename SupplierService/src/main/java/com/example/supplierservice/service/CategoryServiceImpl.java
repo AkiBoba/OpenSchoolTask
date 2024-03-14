@@ -1,6 +1,6 @@
 package com.example.supplierservice.service;
 
-import com.example.supplierservice.domain.Category;
+import com.example.supplierservice.entity.Category;
 import com.example.supplierservice.repository.CategoryRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

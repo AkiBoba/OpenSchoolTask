@@ -5,6 +5,7 @@ import com.example.consumerservice.dto.PageDTO;
 import com.example.consumerservice.dto.ProductDTO;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface ProductService {
@@ -29,6 +30,15 @@ public interface ProductService {
      * @return постраничный список всех продуктов.
      */
     PageDTO<Product> findAll(Integer offset, Integer size, String keyWord) throws JsonProcessingException;
+
+    /**
+     * Получить список отфильтрованных продуктов.
+     * @param categoryId идентификатор категории
+     * @param minPrice минимальная цена продукта
+     * @param maxPrice максимальная цена продукта
+     * @return список отфильтрованных продуктов.
+     */
+    List<Product> findAll(Long categoryId, BigDecimal minPrice, BigDecimal maxPrice) throws JsonProcessingException;
 
     /**
      * Получить информацию о продукте по его идентификатору.

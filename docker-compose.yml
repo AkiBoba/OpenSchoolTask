@@ -1,0 +1,79 @@
+version: "3.9"
+services:
+  dbS:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=supplier
+      - PGDATA=/var/lib/postgresql/data
+    restart: always
+    container_name: dbSupplier
+    networks:
+      - my_network
+
+  dbC:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=consumer
+      - PGDATA=/var/lib/postgresql/data
+    restart: always
+    container_name: dbConsumer
+    networks:
+      - my_network
+
+  lb:
+    build:
+      context: .
+      dockerfile: DockerfileB
+    environment:
+      - JDBC_URL=jdbc:postgresql://dbS:5432/supplier
+      - JDBC_USERNAME=postgres
+      - JDBC_PASSWORD=password
+      - JDBC_DRIVER=org.postgresql.Driver
+    container_name: lbSupplier
+    depends_on:
+      - dbS
+    networks:
+      - my_network
+
+  supp_app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - spring.datasource.url=jdbc:postgresql://dbS:5432/supplier
+      - spring.datasource.username=postgres
+      - spring.datasource.password=password
+      - spring.datasource.driver-class-name=org.postgresql.Driver
+    ports:
+      - "127.0.0.1:8080:8080"
+    container_name: supplier
+    depends_on:
+      - dbS
+      - lb
+    networks:
+      - my_network
+
+  cons_app:
+    build:
+      context: .
+      dockerfile: DockerfileC
+    environment:
+      - spring.datasource.url=jdbc:postgresql://dbC:5432/consumer
+      - spring.datasource.username=postgres
+      - spring.datasource.password=password
+      - spring.datasource.driver-class-name=org.postgresql.Driver
+    ports:
+      - "127.0.0.1:8081:8081"
+    container_name: consumer
+    depends_on:
+      - dbC
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge

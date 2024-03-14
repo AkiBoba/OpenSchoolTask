@@ -2,6 +2,7 @@ package com.example.consumerservice.api;
 
 import com.example.consumerservice.domain.Category;
 import com.example.consumerservice.service.CategoryService;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -16,6 +17,7 @@ import java.util.List;
 public class CategoryAPI {
     CategoryService service;
 
+    @Operation(description = "Контроллер принимает запрос на получение списка всех категорий")
     @GetMapping("/categories")
     public List<Category> findAll() {
         return service.findAll();

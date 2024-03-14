@@ -1,4 +1,4 @@
-package com.example.supplierservice.ErrorService;
+package com.example.supplierservice.errorService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;

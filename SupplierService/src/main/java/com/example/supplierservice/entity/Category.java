@@ -1,4 +1,4 @@
-package com.example.supplierservice.domain;
+package com.example.supplierservice.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -14,6 +14,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "categories")
 public class Category {
     @Id
@@ -23,7 +24,7 @@ public class Category {
     @NotBlank(message = "Поле имя не заполнено")
     private String name;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     @ToString.Exclude
     @JsonIgnore
     @Fetch(FetchMode.SUBSELECT)

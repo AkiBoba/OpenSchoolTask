@@ -1,9 +1,10 @@
 package com.example.supplierservice.service;
 
-import com.example.supplierservice.domain.Product;
+import com.example.supplierservice.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 public interface ProductService {
@@ -36,6 +37,38 @@ public interface ProductService {
     Page<Product> findAll(Pageable pageable, String keyWord);
 
     /**
+     * Получить список отфильтрованных продуктов.
+     * @param categoryId идентификатор категории
+     * @param minPrice минимальная цена продукта
+     * @param maxPrice максимальная цена продукта
+     * @return список отфильтрованных продуктов.
+     */
+    List<Product> findAll(Long categoryId, BigDecimal minPrice, BigDecimal maxPrice);
+
+    /**
+     * Получить список отфильтрованных продуктов.
+     * @param minPrice минимальная цена продукта
+     * @param maxPrice максимальная цена продукта
+     * @return список отфильтрованных продуктов.
+     */
+    List<Product> findAll(BigDecimal minPrice, BigDecimal maxPrice);
+
+    /**
+     * Получить список отфильтрованных продуктов.
+     * @param categoryId идентификатор категории
+     * @param minPrice минимальная цена продукта
+     * @return список отфильтрованных продуктов.
+     */
+    List<Product> findAll(Long categoryId, BigDecimal minPrice);
+
+    /**
+     * Получить список отфильтрованных продуктов.
+     * @param minPrice минимальная цена продукта
+     * @return список отфильтрованных продуктов.
+     */
+    List<Product> findAll(BigDecimal minPrice);
+
+    /**
      * Получить информацию о продукте по его идентификатору.
      * @param productId идентификатор продукта
      * @return объект класса product
@@ -47,5 +80,4 @@ public interface ProductService {
      * @param productId идентификатор продукта
      */
     void delete(Long productId);
-
 }
