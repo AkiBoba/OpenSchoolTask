@@ -56,4 +56,31 @@ class ProductControllerTest {
         assertEquals(products, responseEntity.getBody());
     }
 
+    @Test
+    void create() {
+    }
+
+    @Test
+    void findAll() {
+    }
+
+    @Test
+    void findPageable() {
+    }
+
+    @Test
+    void findFiltered() {
+    }
+
+    @Test
+    void findById() {
+    }
+
+    @Test
+    void update() {
+    }
+
+    @Test
+    void delete() {
+    }
 }
