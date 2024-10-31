@@ -29,7 +29,8 @@ public class CategoryServiceImpl implements CategoryService {
 
     static ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-    static String categoryUrl = "http://localhost:8080/api/v1/categories";
+//    static String categoryUrl = "http://localhost:8080/api/v1/categories";
+    static String categoryUrl = "http://supplier:8080/api/v1/categories";
 
     @Override
     public List<Category> findAll() {

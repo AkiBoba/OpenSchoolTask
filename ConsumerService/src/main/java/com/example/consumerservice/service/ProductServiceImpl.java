@@ -32,7 +32,8 @@ public class ProductServiceImpl implements ProductService {
     RestTemplate restTemplate;
     static HttpHeaders headers = new HttpHeaders();
     static ObjectMapper mapper = new ObjectMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-    static String productUrl = "http://localhost:8080/api/v1/products";
+//    static String productUrl = "http://localhost:8080/api/v1/products";
+    static String productUrl = "http://supplier:8080/api/v1/products";
     static String pageableUrlSuffix = "/pageable";
     static String idUrlSuffix = "/{id}";
     static String filterUrlSuffix = "/filtered";
