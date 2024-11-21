@@ -29,101 +29,101 @@ public class TestConfig {
 
         Product product1 = Product
                 .builder()
-                .name("яблоки")
-                .description("зеленые")
+                .name("apple")
+                .description("green")
                 .price(new BigDecimal("10.20"))
                 .build();
 
         Product product2 = Product
                 .builder()
-                .name("груши")
-                .description("сезонные")
+                .name("bananas")
+                .description("african")
                 .price(new BigDecimal("15.10"))
                 .build();
 
         Product product3 = Product
                 .builder()
-                .name("помидоры")
-                .description("черри")
+                .name("tomato")
+                .description("red")
                 .price(new BigDecimal("220.60"))
                 .build();
 
         Product product4 = Product
                 .builder()
-                .name("огурцы")
-                .description("тепличные")
+                .name("cucumber")
+                .description("summers")
                 .price(new BigDecimal("230.00"))
                 .build();
 
         Product product5 = Product
                 .builder()
-                .name("сок")
-                .description("виноградный")
+                .name("juice")
+                .description("apples")
                 .price(new BigDecimal("50.10"))
                 .build();
 
         Product product6 = Product
                 .builder()
-                .name("вода")
-                .description("минеральная")
+                .name("water")
+                .description("mineral")
                 .price(new BigDecimal("135.69"))
                 .build();
 
         Product product7 = Product
                 .builder()
-                .name("молоко")
-                .description("жирное")
+                .name("milk")
+                .description("fat")
                 .price(new BigDecimal("95.20"))
                 .build();
 
         Product product8 = Product
                 .builder()
-                .name("творог")
-                .description("обезжиренный")
+                .name("cottage cheese")
+                .description("low-fat")
                 .price(new BigDecimal("100.30"))
                 .build();
 
         Product product9 = Product
                 .builder()
-                .name("греча")
-                .description("импортная")
+                .name("buckwheat")
+                .description("imported")
                 .price(new BigDecimal("60.50"))
                 .build();
 
         Product product10 = Product
                 .builder()
-                .name("рис")
-                .description("белый")
+                .name("rice")
+                .description("white")
                 .price(new BigDecimal("70.10"))
                 .build();
 
         Category category1 = Category
                 .builder()
-                .name("фрукты")
+                .name("fruits")
                 .products(List.of(product1, product2))
                 .build();
 
         Category category2 = Category
                 .builder()
-                .name("овощи")
+                .name("vegetables")
                 .products(List.of(product3, product4))
                 .build();
 
         Category category3 = Category
                 .builder()
-                .name("напитки")
+                .name("drinks")
                 .products(List.of(product5, product6))
                 .build();
 
         Category category4 = Category
                 .builder()
-                .name("молочка")
+                .name("dairy products")
                 .products(List.of(product7, product8))
                 .build();
 
         Category category5 = Category
                 .builder()
-                .name("крупы")
+                .name("cereals")
                 .products(List.of(product9, product10))
                 .build();
 
@@ -317,167 +317,167 @@ public class TestConfig {
         );
 
         Review review1 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review2 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review3 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review4 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review5 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review6 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review7 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review8 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review9 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review10 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review11 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review12 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review13 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review14 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review15 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review16 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review17 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review18 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review19 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review20 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review21 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review22 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review23 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review24 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review25 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review26 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review27 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review28 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review29 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review30 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review31 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review32 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
         Review review33 = reviewRepository.save(Review.builder()
-                .review("новый отзыв")
+                .review("new review")
                 .build()
         );
 
